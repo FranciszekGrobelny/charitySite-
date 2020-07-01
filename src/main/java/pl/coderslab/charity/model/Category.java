@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "categories")
-@Getter @Setter @ToString @EqualsAndHashCode(callSuper = false)
+@Getter @Setter @ToString
 public class Category extends ParentEntity{
 
     private String name;

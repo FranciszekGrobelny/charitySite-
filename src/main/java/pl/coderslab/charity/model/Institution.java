@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "institutions")
-@Getter @Setter @ToString @EqualsAndHashCode(callSuper = false)
+@Getter @Setter @ToString
 public class Institution extends ParentEntity {
 
     private String name;
