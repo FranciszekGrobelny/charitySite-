@@ -9,9 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "categories")
+@Table(name = "institutions")
 @Getter @Setter @ToString @EqualsAndHashCode(callSuper = false)
-public class Category extends ParentEntity{
+public class Institution extends ParentEntity {
 
     private String name;
+
+    private String description;
 }
