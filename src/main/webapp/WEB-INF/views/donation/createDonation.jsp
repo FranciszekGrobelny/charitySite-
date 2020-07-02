@@ -92,7 +92,7 @@
                 <c:forEach items="${allCategories}" var="category">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <input type="checkbox" name="categories" value="clothes-to-use"/>
+                            <input type="checkbox" name="categories" value="${category.name}"/>
                             <span class="checkbox"></span>
                             <span class="description">${category.name}</span>
                         </label>
