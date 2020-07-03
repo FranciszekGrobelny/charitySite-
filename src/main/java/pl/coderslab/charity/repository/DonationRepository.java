@@ -6,9 +6,9 @@ import pl.coderslab.charity.model.Donation;
 
 public interface DonationRepository extends JpaRepository<Donation,Long> {
 
-    @Query(value = "SELECT SUM(d.quantity) FROM Donation d")
+    @Query(value = "SELECT count(d) FROM Donation d")
     Long sumByQuantity();
 
-    @Query(value = "SELECT SUM(d.quantity) FROM Donation d WHERE d.pickUpDate IS NOT NULL")
+    @Query(value = "SELECT SUM(d.quantity) FROM Donation d ")
     Long sumGivenItems();
 }
