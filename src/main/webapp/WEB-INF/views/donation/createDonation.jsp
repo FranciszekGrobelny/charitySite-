@@ -111,7 +111,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <input type="number" name="bags" step="1" min="1" />
+                        <input id="bags" type="number" name="bags" step="1" min="1" />
                     </label>
                 </div>
 
@@ -129,7 +129,7 @@
                 <c:forEach items="${allInstitutions}" var="institution">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <input type="radio" name="organization" value="${institution.name}" />
+                            <input class="institutions" type="radio" name="organization" value="${institution.name}" />
                             <span class="checkbox radio"></span>
                             <span class="description">
                       <div class="title">Fundacja “${institution.name}”</div>
@@ -154,22 +154,22 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <input type="text" name="address" /> </label>
+                            <label> Ulica <input id="address" type="text" name="address" /> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <input type="text" name="city" /> </label>
+                            <label> Miasto <input id="city" type="text" name="city" /> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <input type="text" name="postcode" />
+                                Kod pocztowy <input id="postcode" type="text" name="postcode" />
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Numer telefonu <input type="phone" name="phone" />
+                                Numer telefonu <input id="phone" type="phone" name="phone" />
                             </label>
                         </div>
                     </div>
@@ -177,17 +177,17 @@
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <input type="date" name="data" /> </label>
+                            <label> Data <input id="data" type="date" name="data" /> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina <input type="time" name="time" /> </label>
+                            <label> Godzina <input id="time" type="time" name="time" /> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <textarea name="more_info" rows="5"></textarea>
+                                <textarea id="more_info" name="more_info" rows="5"></textarea>
                             </label>
                         </div>
                     </div>
@@ -208,16 +208,12 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span class="summary--text"
-                                >4 worki ubrań w dobrym stanie dla dzieci</span
-                                >
+                                <span id="bagsSummary" class="summary--text"></span>
                             </li>
 
                             <li>
                                 <span class="icon icon-hand"></span>
-                                <span class="summary--text"
-                                >Dla fundacji "Mam marzenie" w Warszawie</span
-                                >
+                                <span id="institutionSummary" class="summary--text"></span>
                             </li>
                         </ul>
                     </div>
@@ -226,19 +222,19 @@
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
                             <ul>
-                                <li>Prosta 51</li>
-                                <li>Warszawa</li>
-                                <li>99-098</li>
-                                <li>123 456 789</li>
+                                <li id="addressSummary"></li>
+                                <li id="citySummary"></li>
+                                <li id="postcodeSummary"></li>
+                                <li id="phoneSummary"></li>
                             </ul>
                         </div>
 
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
                             <ul>
-                                <li>13/12/2018</li>
-                                <li>15:40</li>
-                                <li>Brak uwag</li>
+                                <li id="dataSummary"></li>
+                                <li id="timeSummary"></li>
+                                <li id="more_infoSummary"></li>
                             </ul>
                         </div>
                     </div>
