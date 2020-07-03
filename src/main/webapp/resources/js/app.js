@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector('#citySummary').innerHTML=document.querySelector('#city').value;
     document.querySelector('#postcodeSummary').innerHTML=document.querySelector('#postcode').value;
     document.querySelector('#phoneSummary').innerHTML=document.querySelector('#phone').value;
-    document.querySelector('#dataSummary').innerHTML=document.querySelector('#data').value;
+    document.querySelector('#dateSummary').innerHTML=document.querySelector('#date').value;
     document.querySelector('#timeSummary').innerHTML=document.querySelector('#time').value;
     document.querySelector('#more_infoSummary').innerHTML=document.querySelector('#more_info').value;
     function getInstitutionRadioValue(){

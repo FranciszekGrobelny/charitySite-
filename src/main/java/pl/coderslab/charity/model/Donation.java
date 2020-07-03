@@ -20,13 +20,10 @@ import java.util.List;
 public class Donation extends ParentEntity {
 
     @Column(nullable = false)
-    @NotNull @Min(1)
     private Integer quantity;
-
-    @ManyToMany @NotNull
+    @ManyToMany
     private List<Category> categories;
-
-    @ManyToOne @NotNull
+    @ManyToOne
     private Institution institution;
 
     private String street;
@@ -35,11 +32,8 @@ public class Donation extends ParentEntity {
 
     private String zipCode;
 
-    @PastOrPresent
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
 
-    @PastOrPresent
     private LocalTime pickUpTime;
 
     private String pickUpComment;

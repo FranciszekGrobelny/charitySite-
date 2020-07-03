@@ -177,7 +177,7 @@
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <input id="data" type="date" name="data" /> </label>
+                            <label> Data <input id="date" type="date" name="date" /> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
@@ -232,7 +232,7 @@
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
                             <ul>
-                                <li id="dataSummary"></li>
+                                <li id="dateSummary"></li>
                                 <li id="timeSummary"></li>
                                 <li id="more_infoSummary"></li>
                             </ul>
