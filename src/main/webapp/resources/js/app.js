@@ -171,4 +171,29 @@ document.addEventListener("DOMContentLoaded", function() {
   if (form !== null) {
     new FormSteps(form);
   }
+  /**
+   * set correct value of attributes in summary
+   */
+  function setSummaryAttributes() {
+
+    document.querySelector('#bagsSummary').innerHTML=document.querySelector('#bags').value;
+    document.querySelector('#institutionSummary').innerHTML= 'Dla fundacji "'+getInstitutionRadioValue()+'"';
+    document.querySelector('#addressSummary').innerHTML=document.querySelector('#address').value;
+    document.querySelector('#citySummary').innerHTML=document.querySelector('#city').value;
+    document.querySelector('#postcodeSummary').innerHTML=document.querySelector('#postcode').value;
+    document.querySelector('#phoneSummary').innerHTML=document.querySelector('#phone').value;
+    document.querySelector('#dateSummary').innerHTML=document.querySelector('#date').value;
+    document.querySelector('#timeSummary').innerHTML=document.querySelector('#time').value;
+    document.querySelector('#more_infoSummary').innerHTML=document.querySelector('#more_info').value;
+    function getInstitutionRadioValue(){
+      var radioButtons = document.querySelectorAll('.institutions');
+      for (var i = 0; i < radioButtons.length; i++) {
+        if (radioButtons[i].checked){
+          return radioButtons[i].value;
+        }
+      }
+      return '';
+    }
+  }
+  setSummaryAttributes();
 });
