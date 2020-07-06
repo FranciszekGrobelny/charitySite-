@@ -20,7 +20,11 @@
                 <ul class="dropdown">
                     <li><a href="#">Profil</a></li>
                     <li><a href="#">Moje zbiórki</a></li>
-                    <li><a href="#">Wyloguj</a></li>
+                    <form action="<c:url value="/logout"/>" method="post">
+                        <li><input class="fa fa-id-badge" type="submit" value="Wyloguj"></li>
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                    </form>
+
                 </ul>
             </li>
         </ul>
