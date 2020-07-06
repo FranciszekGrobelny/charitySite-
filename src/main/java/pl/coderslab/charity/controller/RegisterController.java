@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.dto.user.RegisterUserDTO;
 import pl.coderslab.charity.service.RegisterService;
+import pl.coderslab.charity.service.UserService;
 
 @Controller
 @RequestMapping("/register")
@@ -12,9 +13,11 @@ import pl.coderslab.charity.service.RegisterService;
 public class RegisterController {
 
     private final RegisterService registerService;
+    private final UserService userService;
 
-    public RegisterController(RegisterService registerService) {
+    public RegisterController(RegisterService registerService, UserService userService) {
         this.registerService = registerService;
+        this.userService = userService;
     }
 
     @GetMapping
@@ -30,6 +33,6 @@ public class RegisterController {
 
         RegisterUserDTO registerUserDTO = new RegisterUserDTO(email,password,password2);
         registerService.saveUser(registerUserDTO);
-        return "/donation/createDonation";
+        return "redirect:/donation/create";
     }
 }
