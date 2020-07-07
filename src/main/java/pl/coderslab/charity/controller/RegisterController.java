@@ -13,11 +13,9 @@ import pl.coderslab.charity.service.UserService;
 public class RegisterController {
 
     private final RegisterService registerService;
-    private final UserService userService;
 
-    public RegisterController(RegisterService registerService, UserService userService) {
+    public RegisterController(RegisterService registerService) {
         this.registerService = registerService;
-        this.userService = userService;
     }
 
     @GetMapping
