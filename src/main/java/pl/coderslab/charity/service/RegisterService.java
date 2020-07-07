@@ -33,4 +33,17 @@ public class RegisterService {
         userDao.saveUser(user);
 
     }
+
+    @Transactional
+    public void saveAdmin(RegisterUserDTO registerUserDTO){
+
+        User user = new User();
+        user.setEnabled(1);
+        user.setUsername(registerUserDTO.getEmail());
+        user.getRoles().add(roleRepository.findByName("ROLE_ADMIN"));
+        user.setPassword(passwordEncoder.encode(registerUserDTO.getPassword()));
+
+        userDao.saveUser(user);
+
+    }
 }
