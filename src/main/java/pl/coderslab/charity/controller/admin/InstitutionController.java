@@ -28,7 +28,8 @@ public class InstitutionController {
 
     @GetMapping("/{id}")
     public Institution getInstitution(@PathVariable Long id) {
-        return institutionRepository.getOne(id);
+        Institution institution = institutionRepository.getOne(id);
+        return institution;
     }
 
     @DeleteMapping("/{id}")
