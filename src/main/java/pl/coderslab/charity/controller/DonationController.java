@@ -1,6 +1,10 @@
 package pl.coderslab.charity.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.coderslab.charity.dto.donation.CreateDonationDTO;
 import pl.coderslab.charity.model.Category;
+import pl.coderslab.charity.model.CurrentUser;
 import pl.coderslab.charity.model.Institution;
+import pl.coderslab.charity.model.User;
 import pl.coderslab.charity.repository.CategoryRepository;
 import pl.coderslab.charity.repository.InstitutionRepository;
 import pl.coderslab.charity.service.CategoryService;
@@ -17,6 +23,7 @@ import pl.coderslab.charity.service.DonationService;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -38,10 +45,13 @@ public class DonationController {
     }
 
     @GetMapping("/create")
-    public String makeDonation(Model model){
+    public String makeDonation(Model model, @AuthenticationPrincipal UserDetails user){
+
+        log.warn("zalogowany uzytkownik i jego rola: {}, {}", user.getUsername(), user.getAuthorities());
 
         model.addAttribute("allCategories", categoryRepository.findAll());
         model.addAttribute("allInstitutions", institutionRepository.findAll());
+        model.addAttribute("loggedAs", user.getUsername());
         return "/donation/createDonation";
     }
     @PostMapping("/confirm")
