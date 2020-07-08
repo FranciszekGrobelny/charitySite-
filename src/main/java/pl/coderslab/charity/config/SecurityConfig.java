@@ -36,15 +36,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/donation/create", "/donation/confirm").authenticated()
-                .and().formLogin().loginPage("/login")
+                .antMatchers("/donation/**").authenticated()
+                .antMatchers("/api/**").hasRole("ADMIN")
+                .and().httpBasic()
+                .and().formLogin().loginPage("/login").defaultSuccessUrl("/donation/create",true)
                 .and().logout().logoutSuccessUrl("/").permitAll()
                 .and().exceptionHandling().accessDeniedPage("/403");
     }
-
+    @Bean public SpringDataUserDetailsService customUserDetailsService() {
+        return new SpringDataUserDetailsService();
+    }
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+
     }
 
-}
+
+    }
