@@ -11,4 +11,4 @@ What have been done:
 * category-controller(manage all information using REST API)
 * institution-controller(manage all information using REST API)
 * donation-controller with oportunity to create a new one
-* swagger for category and intitution methods(GET, POST, PUT, DELETE)
+* swagger for category and institution methods(GET, POST, PUT, DELETE)
