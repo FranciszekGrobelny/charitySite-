@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.dto.user.RegisterUserDTO;
 import pl.coderslab.charity.service.RegisterService;
-import pl.coderslab.charity.service.UserService;
 
 @Controller
 @RequestMapping("/register")
