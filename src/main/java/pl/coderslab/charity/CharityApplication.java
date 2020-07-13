@@ -18,14 +18,12 @@ public class CharityApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        try {
-            RestTemplate restTemplate = new RestTemplate();
-            restTemplate.getInterceptors().add(new BasicAuthenticationInterceptor("a@a.pl", "admin"));
-            Institution institution = restTemplate.getForObject(URI.create("http://localhost:8080/api/institutions/4"), Institution.class);
-            System.out.println(institution.getDescription());
-        } catch (Exception ex) {
-            ;
-        }
+
+//            RestTemplate restTemplate = new RestTemplate();
+//            restTemplate.getInterceptors().add(new BasicAuthenticationInterceptor("a@a.pl", "admin"));
+//            Institution institution = restTemplate.getForObject(URI.create("http://localhost:8080/api/institutions/4"), Institution.class);
+//            System.out.println(institution.getDescription());
+
 
     }
 }

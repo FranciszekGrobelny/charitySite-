@@ -1,5 +1,6 @@
 package pl.coderslab.charity.controller.admin;
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.charity.model.Institution;
 import pl.coderslab.charity.repository.InstitutionRepository;
@@ -16,27 +17,26 @@ public class InstitutionController {
         this.institutionRepository = institutionRepository;
     }
 
+    @ApiOperation(value = "get all institutions")
     @GetMapping
     public List<Institution> allInstitutions() {
         return institutionRepository.findAll();
     }
 
+    @ApiOperation(value = "save institution")
     @PostMapping
     public void addInstitution(Institution institution) {
         institutionRepository.save(institution);
     }
 
+    @ApiOperation(value = "get institution by id")
     @GetMapping("/{id}")
     public Institution getInstitution(@PathVariable Long id) {
         Institution institution = institutionRepository.getOne(id);
         return institution;
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteInstitution(@PathVariable Long id) {
-        institutionRepository.deleteById(id);
-    }
-
+    @ApiOperation(value = "update specific institution by id")
     @PutMapping("/{id}")
     public void updateInstitution(@PathVariable Long id, Institution institution) {
         Institution savedInstitution = institutionRepository.getOne(id);
@@ -44,5 +44,13 @@ public class InstitutionController {
         savedInstitution.setDescription(institution.getDescription());
         institutionRepository.save(savedInstitution);
     }
+
+    @ApiOperation(value = "delete institution by id")
+    @DeleteMapping("/{id}")
+    public void deleteInstitution(@PathVariable Long id) {
+        institutionRepository.deleteById(id);
+    }
+
+
 
 }
