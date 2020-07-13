@@ -37,9 +37,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers("/donation/**").authenticated()
-                .antMatchers("/api/**").hasRole("ADMIN")
+                .antMatchers("/api/**","/admin/**").permitAll()
                 .and().httpBasic()
-                .and().formLogin().loginPage("/login").defaultSuccessUrl("/donation/create",true)
+                .and().formLogin().successHandler(suc()).loginPage("/login")
                 .and().logout().logoutSuccessUrl("/").permitAll()
                 .and().exceptionHandling().accessDeniedPage("/403");
     }
@@ -49,7 +49,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
 
+    @Bean
+    public MyAuthenticationSuccessHandler suc(){
+        return new MyAuthenticationSuccessHandler();
     }
 
 

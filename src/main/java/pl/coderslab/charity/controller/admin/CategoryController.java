@@ -8,6 +8,7 @@ import pl.coderslab.charity.repository.CategoryRepository;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/categories")
 public class CategoryController {

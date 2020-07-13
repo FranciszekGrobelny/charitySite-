@@ -7,6 +7,7 @@ import pl.coderslab.charity.repository.InstitutionRepository;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/institutions")
 public class InstitutionController {
