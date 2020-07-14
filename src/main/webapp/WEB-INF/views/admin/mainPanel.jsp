@@ -24,6 +24,6 @@
             <input type="submit">
         </form>
     </div>
-
+<script src="<c:url value="/resources/js/adminPanel.js"/>"></script>
 </body>
 </html>
