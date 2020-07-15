@@ -9,21 +9,35 @@
 </head>
 <body>
 
-    <h3>Kategorie</h3>
-    <h4>Dodaj nową kategorię</h4>
+    <h2>Kategorie</h2>
+    <button id="getAll" type="submit" data-ajax="GET">Pokaż aktualną listę kategorii</button>
     <div>
-        <form method="post" action="/admin/panel/create/category">
+        <table id="nextCategories">
+
+        </table>
+    </div>
+
+    <div id="getCategoryById"></div>
+
+    <div>
+        <h4>Dodaj nową kategorię</h4>
+        <form>
             <input type="text" name="categoryName">
-            <input type="submit">
+            <button type="submit" data-ajax="POST">Dodaj</button>
         </form>
     </div>
-    <h4>Edytuj kategorię o podanym id</h4>
     <div>
-        <form method="post" action="/admin/panel/update/category">
+        <h4>Edytuj kategorię o podanym id</h4>
+        <form>
             <input type="number" name="categoryId">
-            <input type="submit">
+            <input type="text" name="updateCategoryName"/>
+            <button type="submit" data-ajax="UPDATE">Edytuj</button>
         </form>
     </div>
-<script src="<c:url value="/resources/js/adminPanel.js"/>"></script>
+    <div id="deleteById">
+
+    </div>
+    <script src="<c:url value="/resources/js/jquery-3.4.1.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/adminPanel.js"/>"></script>
 </body>
 </html>
